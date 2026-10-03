@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Login - Community Safety</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<header>
+    <div class="logo">Community Safety - Admin</div>
+
+    <nav>
+        <a href="/">Home</a>
+    </nav>
+</header>
+
+<section class="report-form-section">
+
+    <div class="form-container">
+
+        <h1>Admin Login</h1>
+
+        <p>Login to manage community safety reports.</p>
+
+        <form method="POST">
+
+            <label for="email">Admin Email</label>
+
+            <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Enter admin email"
+                required
+            >
+
+            <label for="password">Password</label>
+
+            <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Enter admin password"
+                required
+            >
+
+            <button type="submit" class="button">
+                Admin Login
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+</body>
+</html>

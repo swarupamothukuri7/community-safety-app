@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account - Community Safety</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<header>
+    <div class="logo">Community Safety</div>
+
+    <nav>
+        <a href="/">Home</a>
+        <a href="/report">Report Issue</a>
+        <a href="/reports">View Reports</a>
+        <a href="/login">Login</a>
+    </nav>
+</header>
+
+<section class="report-form-section">
+
+    <div class="form-container">
+
+        <h1>Create an Account</h1>
+
+        <p>
+            Register to report and track community safety issues.
+        </p>
+
+        <form method="POST">
+
+            <label for="name">Full Name</label>
+            <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Enter your full name"
+                required
+            >
+
+            <label for="email">Email Address</label>
+            <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Enter your email"
+                required
+            >
+
+            <label for="password">Password</label>
+            <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Create a password"
+                required
+            >
+
+            <button type="submit" class="button">
+                Create Account
+            </button>
+
+        </form>
+
+        <p>
+            Already have an account?
+            <a href="/login">Login here</a>
+        </p>
+
+    </div>
+
+</section>
+
+</body>
+</html>

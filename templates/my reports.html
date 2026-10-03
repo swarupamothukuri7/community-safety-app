@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Reports - Community Safety</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<header>
+    <div class="logo">Community Safety</div>
+
+    <nav>
+        <a href="/">Home</a>
+        <a href="/report">Report Issue</a>
+        <a href="/my-reports">My Reports</a>
+        <a href="/reports">View Reports</a>
+        <a href="/login">Login</a>
+    </nav>
+</header>
+
+<section class="reports-section">
+
+    <div class="table-container">
+
+        <h1>My Reports</h1>
+
+        {% if reports %}
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Category</th>
+                    <th>Location</th>
+                    <th>Description</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                {% for report in reports %}
+
+                <tr>
+                    <td>{{ report["id"] }}</td>
+                    <td>{{ report["category"] }}</td>
+                    <td>{{ report["location"] }}</td>
+                    <td>{{ report["description"] }}</td>
+                    <td>
+                        <span class="status">
+                            {{ report["status"] }}
+                        </span>
+                    </td>
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+        {% else %}
+
+        <p class="no-reports">
+            You have not submitted any reports yet.
+        </p>
+
+        {% endif %}
+
+    </div>
+
+</section>
+
+</body>
+</html>

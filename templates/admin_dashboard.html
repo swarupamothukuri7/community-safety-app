@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard - Community Safety</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<header>
+    <div class="logo">Community Safety - Admin</div>
+
+    <nav>
+        <a href="/">Home</a>
+        <a href="/admin/dashboard">Dashboard</a>
+        <a href="/admin/logout">Logout</a>
+    </nav>
+</header>
+
+<section class="reports-section">
+
+    <div class="table-container">
+
+        <h1>Admin Dashboard</h1>
+
+        <p>Manage all community safety reports.</p>
+
+        {% if reports %}
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>User</th>
+                    <th>Category</th>
+                    <th>Location</th>
+                    <th>Description</th>
+                    <th>Status</th>
+                    <th>Update</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                {% for report in reports %}
+
+                <tr>
+
+                    <td>{{ report["id"] }}</td>
+
+                    <td>
+                        {{ report["name"] or "Unknown" }}
+                    </td>
+
+                    <td>{{ report["category"] }}</td>
+
+                    <td>{{ report["location"] }}</td>
+
+                    <td>{{ report["description"] }}</td>
+
+                    <td>
+                        <span class="status">
+                            {{ report["status"] }}
+                        </span>
+                    </td>
+
+                    <td>
+
+                        <form
+                            method="POST"
+                            action="/admin/update/{{ report['id'] }}"
+                        >
+
+                            <select name="status">
+
+                                <option value="Pending"
+                                    {% if report["status"] == "Pending" %}selected{% endif %}>
+                                    Pending
+                                </option>
+
+                                <option value="Under Review"
+                                    {% if report["status"] == "Under Review" %}selected{% endif %}>
+                                    Under Review
+                                </option>
+
+                                <option value="Resolved"
+                                    {% if report["status"] == "Resolved" %}selected{% endif %}>
+                                    Resolved
+                                </option>
+
+                            </select>
+
+                            <button type="submit" class="button">
+                                Update
+                            </button>
+
+                        </form>
+
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+        {% else %}
+
+        <p class="no-reports">
+            No reports have been submitted yet.
+        </p>
+
+        {% endif %}
+
+    </div>
+
+</section>
+
+</body>
+</html>

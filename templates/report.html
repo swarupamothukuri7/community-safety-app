@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Report an Issue</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <header>
+
+        <div class="logo">
+            Community Safety
+        </div>
+
+        <nav>
+            <a href="/">Home</a>
+            <a href="/report">Report Issue</a>
+            <a href="/#about">About</a>
+        </nav>
+
+    </header>
+
+
+    <section class="report-form-section">
+
+        <div class="form-container">
+
+            <h1>Report a Safety Issue</h1>
+
+            <p>
+                Help improve your community by reporting
+                a safety or public infrastructure problem.
+            </p>
+
+
+            <form method="POST">
+
+                <label for="category">
+                    Issue Category
+                </label>
+
+                <select id="category" name="category" required>
+
+                    <option value="">
+                        Select an issue
+                    </option>
+
+                    <option value="Pothole">
+                        Pothole
+                    </option>
+
+                    <option value="Broken Streetlight">
+                        Broken Streetlight
+                    </option>
+
+                    <option value="Open Manhole">
+                        Open Manhole
+                    </option>
+
+                    <option value="Damaged Footpath">
+                        Damaged Footpath
+                    </option>
+
+                    <option value="Fallen Tree">
+                        Fallen Tree
+                    </option>
+
+                    <option value="Other">
+                        Other
+                    </option>
+
+                </select>
+
+
+                <label for="location">
+                    Location
+                </label>
+
+                <input
+                    type="text"
+                    id="location"
+                    name="location"
+                    placeholder="Enter the issue location"
+                    required
+                >
+
+
+                <label for="description">
+                    Description
+                </label>
+
+                <textarea
+                    id="description"
+                    name="description"
+                    rows="6"
+                    placeholder="Describe the issue..."
+                    required
+                ></textarea>
+
+
+                <label for="photo">
+                    Upload Photo
+                </label>
+
+                <input
+                    type="file"
+                    id="photo"
+                    name="photo"
+                    accept="image/*"
+                >
+
+
+                <button type="submit" class="button">
+                    Submit Report
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <footer>
+
+        <p>
+            Community Safety Issue Reporting Platform
+        </p>
+
+    </footer>
+
+</body>
+
+</html>

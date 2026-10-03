@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Safety</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">Community Safety</div>
+
+        <nav>
+            <a href="/">Home</a>
+            <a href="/report">Report Issue</a>
+            <a href="/my reports">My Reports</a>
+            <a href="/reports">View Reports</a>
+            {% if session.get("user_id") %}
+
+                <span class="welcome">
+                Welcome, {{ session.get("user_name") }}
+                </span>
+
+                <a href="/logout">Logout</a>
+
+            {% else %}
+                <a href="/register">Register</a>
+                <a href="/login">Login</a>
+            {% endif %}
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Make Your Community Safer</h1>
+
+            <p>
+                Report local safety and public infrastructure issues
+                and help create a safer community for everyone.
+            </p>
+
+            <a href="/report" class="button">Report an Issue</a>
+        </div>
+    </section>
+
+    <section class="features">
+
+        <div class="card">
+            <h2>📝 Report</h2>
+            <p>
+                Report problems such as potholes, broken streetlights,
+                open manholes and other safety issues.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>🔍 Track</h2>
+            <p>
+                Track the status of your submitted reports
+                from submission to resolution.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>🏘️ Improve</h2>
+            <p>
+                Help authorities identify and address
+                important community safety problems.
+            </p>
+        </div>
+
+    </section>
+
+    <section id="report" class="report-section">
+
+        <h2>Report a Community Issue</h2>
+
+        <p>
+            Have you noticed a safety problem in your area?
+            Report it so that it can be tracked and addressed.
+        </p>
+
+        <a href="/report" class="button">Start a Report</a>
+
+    </section>
+
+    <section id="about" class="about">
+
+        <h2>About the Platform</h2>
+
+        <p>
+            The Community Safety Issue Reporting Platform provides
+            a simple way for citizens to report and track local
+            safety and public infrastructure issues.
+        </p>
+
+    </section>
+
+    <footer>
+        <p>Community Safety Issue Reporting Platform</p>
+    </footer>
+
+</body>
+</html>
